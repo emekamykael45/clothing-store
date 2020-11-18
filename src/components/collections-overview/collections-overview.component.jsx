@@ -9,9 +9,13 @@ import { CollectionsOverviewContainer } from "./collections-overview.styles";
 
 const CollectionsOverview = ({ collections }) => (
   <CollectionsOverviewContainer>
-    {collections.map(({ id, ...otherCollectionProps }) => (
-      <CollectionPreview key={id} {...otherCollectionProps} />
-    ))}
+    {collections.length > 1 ? (
+      collections.map(({ id, ...otherCollectionProps }) => (
+        <CollectionPreview key={id} {...otherCollectionProps} />
+      ))
+    ) : (
+      <h1 style={{ textAlign: "center" }}>No records to show</h1>
+    )}
   </CollectionsOverviewContainer>
 );
 
